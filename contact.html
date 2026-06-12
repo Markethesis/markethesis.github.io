@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Market Thesis</title>
+<title>Contact — Titan Thesis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
@@ -12,38 +12,37 @@
     --navy-deep: #060e1c; --navy: #0a1628; --navy-mid: #0f2040;
     --navy-border: rgba(180,160,100,0.18);
     --gold: #c9a84c; --gold-light: #e8c96a; --gold-pale: rgba(201,168,76,0.12);
-    --text: #e8e4d9; --text-muted: #8a9ab8; --text-dim: #4a5872;
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'DM Sans', sans-serif; --mono: 'DM Mono', monospace;
   }
-  body { background: var(--navy-deep); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
+  body { background: var(--navy-deep); color: #e8e4d9; font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; min-height: 100vh; display: flex; flex-direction: column; }
 
-  .ticker-wrap { background: var(--navy-mid); border-bottom: 1px solid var(--navy-border); overflow: hidden; padding: 8px 0; }
+  .ticker-wrap { background: var(--navy-mid); border-bottom: 1px solid var(--navy-border); overflow: hidden; padding: 12px 0; }
   .ticker { display: flex; gap: 3rem; animation: ticker 32s linear infinite; white-space: nowrap; width: max-content; }
-  .ticker-item { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--text-muted); }
-  .ticker-item .sym { color: var(--gold-light); font-weight: 400; margin-right: 6px; }
+  .ticker-item { font-family: var(--mono); font-size: 13px; letter-spacing: 0.06em; color: #d0ddf0; }
+  .ticker-item .sym { color: var(--gold-light); font-weight: 400; margin-right: 8px; }
   .ticker-item .up { color: #5cb88a; } .ticker-item .dn { color: #e06060; }
   @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
   nav { position: fixed; top: 0; width: 100%; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(6,14,28,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--navy-border); }
-  .nav-logo { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--gold-light); letter-spacing: 0.1em; text-decoration: none; }
+  .nav-logo { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--gold-light); letter-spacing: 0.1em; text-decoration: none; }
   .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.25s; }
+  .nav-links a { font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; color: #a0b0c8; text-decoration: none; transition: color 0.25s; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
 
   .contact-page { flex: 1; display: flex; align-items: center; justify-content: center; padding: 140px 60px 80px; }
   .contact-inner { max-width: 560px; text-align: center; }
   .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; justify-content: center; display: flex; align-items: center; gap: 12px; }
   .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold); opacity: 0.5; }
-  .section-title { font-family: var(--serif); font-size: clamp(40px, 6vw, 72px); font-weight: 300; line-height: 1.1; color: var(--text); margin-bottom: 24px; }
+  .section-title { font-family: var(--serif); font-size: clamp(48px, 6vw, 80px); font-weight: 300; line-height: 1.1; color: #e8e4d9; margin-bottom: 24px; }
   .section-title em { font-style: italic; color: var(--gold-light); }
-  .contact-sub { font-size: 15px; color: var(--text-muted); margin: 0 auto 48px; line-height: 1.8; }
+  .contact-sub { font-size: 16px; color: #d0ddf0; margin: 0 auto 48px; line-height: 1.85; }
   .contact-links { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
-  .contact-link { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 2px; transition: border-color 0.2s; }
+  .contact-link { font-family: var(--mono); font-size: 13px; letter-spacing: 0.12em; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,168,76,0.3); padding-bottom: 2px; transition: border-color 0.2s; }
   .contact-link:hover { border-color: var(--gold); }
 
   footer { background: var(--navy-deep); border-top: 1px solid var(--navy-border); padding: 28px 60px; display: flex; justify-content: space-between; align-items: center; }
-  footer p { font-size: 11px; color: var(--text-dim); letter-spacing: 0.05em; }
+  footer p { font-size: 12px; color: #a0b0c8; letter-spacing: 0.05em; }
 
   @media (max-width: 768px) {
     nav { padding: 16px 24px; } .nav-links { display: none; }
@@ -76,7 +75,7 @@
 </div>
 
 <nav>
-  <a href="index.html" class="nav-logo">S — J</a>
+  <a href="index.html" class="nav-logo">Titan Thesis</a>
   <ul class="nav-links">
     <li><a href="index.html">About</a></li>
     <li><a href="markets.html">Markets</a></li>
