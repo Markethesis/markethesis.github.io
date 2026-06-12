@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Market Thesis</title>
+<title>Titan Thesis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
@@ -12,59 +12,58 @@
     --navy-deep: #060e1c; --navy: #0a1628; --navy-mid: #0f2040;
     --navy-border: rgba(180,160,100,0.18);
     --gold: #c9a84c; --gold-light: #e8c96a; --gold-pale: rgba(201,168,76,0.12);
-    --text: #e8e4d9; --text-muted: #8a9ab8; --text-dim: #4a5872;
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'DM Sans', sans-serif; --mono: 'DM Mono', monospace;
   }
   html { scroll-behavior: smooth; }
-  body { background: var(--navy-deep); color: var(--text); font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+  body { background: var(--navy-deep); color: #e8e4d9; font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
 
-  .ticker-wrap { background: var(--navy-mid); border-bottom: 1px solid var(--navy-border); overflow: hidden; padding: 8px 0; }
+  .ticker-wrap { background: var(--navy-mid); border-bottom: 1px solid var(--navy-border); overflow: hidden; padding: 12px 0; }
   .ticker { display: flex; gap: 3rem; animation: ticker 32s linear infinite; white-space: nowrap; width: max-content; }
-  .ticker-item { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; color: var(--text-muted); }
-  .ticker-item .sym { color: var(--gold-light); font-weight: 400; margin-right: 6px; }
+  .ticker-item { font-family: var(--mono); font-size: 13px; letter-spacing: 0.06em; color: #d0ddf0; }
+  .ticker-item .sym { color: var(--gold-light); font-weight: 400; margin-right: 8px; }
   .ticker-item .up { color: #5cb88a; } .ticker-item .dn { color: #e06060; }
   @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
   nav { position: fixed; top: 0; width: 100%; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(6,14,28,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--navy-border); }
-  .nav-logo { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--gold-light); letter-spacing: 0.1em; text-decoration: none; }
+  .nav-logo { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--gold-light); letter-spacing: 0.1em; text-decoration: none; }
   .nav-links { display: flex; gap: 36px; list-style: none; }
-  .nav-links a { font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.25s; }
+  .nav-links a { font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; color: #a0b0c8; text-decoration: none; transition: color 0.25s; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
 
   .hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding: 120px 60px 80px; overflow: hidden; }
   .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--navy-border) 1px, transparent 1px), linear-gradient(90deg, var(--navy-border) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%); opacity: 0.4; }
   .deco-lines { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); opacity: 0.07; width: 440px; pointer-events: none; }
   .hero-content { position: relative; max-width: 760px; }
-  .hero-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+  .hero-eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
   .hero-eyebrow::before { content: ''; display: block; width: 40px; height: 1px; background: var(--gold); }
-  .hero-name { font-family: var(--serif); font-size: clamp(60px, 8vw, 100px); font-weight: 300; line-height: 1; letter-spacing: -0.02em; color: var(--text); margin-bottom: 8px; }
-  .hero-subtitle { font-family: var(--serif); font-size: clamp(18px, 2.5vw, 26px); font-weight: 300; font-style: italic; color: var(--text-muted); margin-bottom: 36px; }
-  .hero-desc { font-size: 15px; color: var(--text-muted); max-width: 520px; line-height: 1.8; margin-bottom: 48px; }
+  .hero-name { font-family: var(--serif); font-size: clamp(60px, 8vw, 100px); font-weight: 300; line-height: 1; letter-spacing: -0.02em; color: #e8e4d9; margin-bottom: 8px; }
+  .hero-subtitle { font-family: var(--serif); font-size: clamp(18px, 2.5vw, 26px); font-weight: 300; font-style: italic; color: #d0ddf0; margin-bottom: 36px; }
+  .hero-desc { font-size: 16px; color: #c0d0e8; max-width: 520px; line-height: 1.85; margin-bottom: 48px; }
   .hero-cta { display: flex; gap: 20px; flex-wrap: wrap; }
-  .btn-primary { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--navy-deep); background: var(--gold); border: none; padding: 14px 32px; cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-primary { font-family: var(--sans); font-size: 13px; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--navy-deep); background: var(--gold); border: none; padding: 14px 32px; cursor: pointer; text-decoration: none; transition: background 0.2s, transform 0.15s; }
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
-  .btn-outline { font-family: var(--sans); font-size: 11px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); background: transparent; border: 1px solid var(--gold); padding: 14px 32px; cursor: pointer; text-decoration: none; transition: background 0.2s; }
+  .btn-outline { font-family: var(--sans); font-size: 13px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); background: transparent; border: 1px solid var(--gold); padding: 14px 32px; cursor: pointer; text-decoration: none; transition: background 0.2s; }
   .btn-outline:hover { background: var(--gold-pale); }
   .hero-stats { display: flex; gap: 48px; margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--navy-border); }
   .stat-num { font-family: var(--serif); font-size: 36px; font-weight: 300; color: var(--gold-light); line-height: 1; }
-  .stat-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-top: 6px; }
+  .stat-label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #a0b0c8; margin-top: 6px; }
 
   #about { background: var(--navy); padding: 100px 60px; }
   .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
   .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold); opacity: 0.5; }
-  .section-title { font-family: var(--serif); font-size: clamp(36px, 5vw, 56px); font-weight: 300; line-height: 1.1; color: var(--text); margin-bottom: 16px; }
+  .section-title { font-family: var(--serif); font-size: clamp(48px, 6vw, 80px); font-weight: 300; line-height: 1.1; color: #e8e4d9; margin-bottom: 16px; }
   .section-title em { font-style: italic; color: var(--gold-light); }
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 60px; }
-  .about-text p { font-size: 15px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.85; }
-  .about-text p strong { color: var(--text); font-weight: 500; }
+  .about-text p { font-size: 16px; color: #c0d0e8; margin-bottom: 20px; line-height: 1.85; }
+  .about-text p strong { color: #e8e4d9; font-weight: 500; }
   .tag-group { margin-bottom: 36px; }
-  .tag-heading { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
+  .tag-heading { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #a0b0c8; margin-bottom: 12px; }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; }
-  .tag { font-size: 11px; color: var(--gold); border: 1px solid rgba(201,168,76,0.3); padding: 5px 14px; letter-spacing: 0.05em; }
+  .tag { font-size: 12px; color: var(--gold); border: 1px solid rgba(201,168,76,0.3); padding: 5px 14px; letter-spacing: 0.05em; }
 
   footer { background: var(--navy-deep); border-top: 1px solid var(--navy-border); padding: 28px 60px; display: flex; justify-content: space-between; align-items: center; }
-  footer p { font-size: 11px; color: var(--text-dim); letter-spacing: 0.05em; }
+  footer p { font-size: 12px; color: #a0b0c8; letter-spacing: 0.05em; }
 
   @media (max-width: 768px) {
     nav { padding: 16px 24px; } .nav-links { display: none; }
@@ -99,7 +98,7 @@
 </div>
 
 <nav>
-  <a href="index.html" class="nav-logo">S — J</a>
+  <a href="index.html" class="nav-logo">Titan Thesis</a>
   <ul class="nav-links">
     <li><a href="index.html" class="active">About</a></li>
     <li><a href="markets.html">Markets</a></li>
@@ -131,12 +130,7 @@
       <a href="markets.html" class="btn-primary">View Commentary</a>
       <a href="portfolio.html" class="btn-outline">Portfolio</a>
     </div>
-    <div class="hero-stats">
-      <div><div class="stat-num">2nd</div><div class="stat-label">Year at LSE</div></div>
-      <div><div class="stat-num">3+</div><div class="stat-label">Finance Internships</div></div>
-      <div><div class="stat-num">∞</div><div class="stat-label">Hypotheses</div></div>
     </div>
-  </div>
 </section>
 
 <section id="about">
@@ -144,13 +138,22 @@
   <h2 class="section-title">The person<br>behind the <em>thesis</em></h2>
   <div class="about-grid">
     <div class="about-text">
-      <p>I'm a second-year <strong>Mathematics and Economics</strong> student at the London School of Economics, with a deep interest in financial markets — particularly the interplay between macro dynamics, rate cycles, and asset pricing.</p>
-      <p>My academic work spans real analysis, differential equations, and dynamical systems on the maths side, and macroeconomics II, corporate finance, and international economics on the finance side. I try to bring mathematical precision to the way I think about markets.</p>
+      <p>I'm a second-year <strong>Mathematics and Economics</strong> student at the London School of Economics.</p>
+
     </div>
     <div class="about-sidebar">
       <div class="tag-group">
         <div class="tag-heading">Academic Focus</div>
-        <div class="tags"></div>
+        <div class="tags">
+          <span class="tag">Real Analysis</span>
+          <span class="tag">Differential Equations</span>
+          <span class="tag">Linear Algebra</span>
+          <span class="tag">Macroeconomics</span>
+          <span class="tag">Microeconomics</span>
+          <span class="tag">Principles of Finance</span>
+          <span class="tag">Mathematical Methods</span>
+          <span class="tag">Statistics</span>
+        </div>
       </div>
       <div class="tag-group">
         <div class="tag-heading">Markets Interest</div>
