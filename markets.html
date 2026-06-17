@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Markets — Market Thesis</title>
+<title>Markets — Titan Thesis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
@@ -12,34 +12,23 @@
     --navy-deep: #060e1c; --navy: #0a1628; --navy-mid: #0f2040;
     --navy-border: rgba(180,160,100,0.18);
     --gold: #c9a84c; --gold-light: #e8c96a; --gold-pale: rgba(201,168,76,0.12);
-    --text: #e8e4d9; --text-muted: #8a9ab8; --text-dim: #4a5872;
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'DM Sans', sans-serif; --mono: 'DM Mono', monospace;
   }
   body { background: var(--navy-deep); color: #e8e4d9; font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
-
-  .ticker-wrap { background: var(--navy-mid); border-bottom: 1px solid var(--navy-border); overflow: hidden; padding: 12px 0; }
-  .ticker { display: flex; gap: 3rem; animation: ticker 32s linear infinite; white-space: nowrap; width: max-content; }
-  .ticker-item { font-family: var(--mono); font-size: 13px; letter-spacing: 0.06em; color: #d0ddf0; }
-  .ticker-item .sym { color: var(--gold-light); font-weight: 400; margin-right: 8px; }
-  .ticker-item .up { color: #5cb88a; } .ticker-item .dn { color: #e06060; }
-  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-  nav { position: fixed; top: 0; width: 100%; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(6,14,28,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--navy-border); }
+  nav { position: fixed; top: 46px; width: 100%; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(6,14,28,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--navy-border); }
   .nav-logo { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--gold-light); letter-spacing: 0.1em; text-decoration: none; }
   .nav-links { display: flex; gap: 36px; list-style: none; }
   .nav-links a { font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; color: #a0b0c8; text-decoration: none; transition: color 0.25s; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
-
-  .page-hero { padding: 160px 60px 80px; border-bottom: 1px solid var(--navy-border); }
+  .page-hero { padding: 200px 60px 80px; border-bottom: 1px solid var(--navy-border); }
   .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
   .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold); opacity: 0.5; }
   .section-title { font-family: var(--serif); font-size: clamp(48px, 6vw, 80px); font-weight: 300; line-height: 1.1; color: #e8e4d9; margin-bottom: 16px; }
   .section-title em { font-style: italic; color: var(--gold-light); }
   .page-intro { font-size: 16px; color: #d0ddf0; max-width: 560px; line-height: 1.8; margin-top: 16px; }
-
   .content-area { padding: 80px 60px; }
-  .commentary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2px; background: var(--navy-border); }
+  .commentary-grid { display: grid; grid-template-columns: 1fr; gap: 2px; background: var(--navy-border); max-width: 860px; }
   .commentary-card { background: var(--navy-deep); padding: 36px; transition: background 0.2s; cursor: pointer; }
   .commentary-card:hover { background: var(--navy-mid); }
   .card-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
@@ -55,41 +44,42 @@
   .asset-ticker { font-family: var(--mono); font-size: 15px; color: var(--gold-light); letter-spacing: 0.05em; }
   .asset-sep { color: #a0b0c8; }
   .asset-name { font-size: 15px; color: #d0ddf0; }
-
   .empty-state { padding: 80px 0; text-align: center; }
-  .empty-state p { font-family: var(--serif); font-size: 22px; font-style: italic; color: var(--text-dim); }
-
+  .empty-state p { font-family: var(--serif); font-size: 26px; font-style: italic; color: #a0b0c8; }
   footer { background: var(--navy-deep); border-top: 1px solid var(--navy-border); padding: 28px 60px; display: flex; justify-content: space-between; align-items: center; }
-  footer p { font-size: 11px; color: #a0b0c8; letter-spacing: 0.05em; }
-
+  footer p { font-size: 12px; color: #a0b0c8; letter-spacing: 0.05em; }
   @media (max-width: 768px) {
-    nav { padding: 16px 24px; } .nav-links { display: none; }
-    .page-hero { padding: 120px 24px 60px; } .content-area { padding: 60px 24px; }
+    nav { padding: 16px 24px; top: 46px; } .nav-links { display: none; }
+    .page-hero { padding: 140px 24px 60px; } .content-area { padding: 60px 24px; }
     footer { flex-direction: column; gap: 8px; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<div class="ticker-wrap">
-  <div class="ticker">
-    <span class="ticker-item"><span class="sym">FTSE</span> 8,621.40 <span class="up">+0.42%</span></span>
-    <span class="ticker-item"><span class="sym">S&P 500</span> 5,834.27 <span class="up">+0.61%</span></span>
-    <span class="ticker-item"><span class="sym">EUR/USD</span> 1.0812 <span class="dn">-0.18%</span></span>
-    <span class="ticker-item"><span class="sym">BRENT</span> 74.30 <span class="dn">-0.93%</span></span>
-    <span class="ticker-item"><span class="sym">GOLD</span> 2,381.50 <span class="up">+0.27%</span></span>
-    <span class="ticker-item"><span class="sym">GBP/USD</span> 1.2744 <span class="up">+0.09%</span></span>
-    <span class="ticker-item"><span class="sym">US10Y</span> 4.462% <span class="dn">-3bps</span></span>
-    <span class="ticker-item"><span class="sym">VIX</span> 14.82 <span class="dn">-0.55%</span></span>
-    <span class="ticker-item"><span class="sym">FTSE</span> 8,621.40 <span class="up">+0.42%</span></span>
-    <span class="ticker-item"><span class="sym">S&P 500</span> 5,834.27 <span class="up">+0.61%</span></span>
-    <span class="ticker-item"><span class="sym">EUR/USD</span> 1.0812 <span class="dn">-0.18%</span></span>
-    <span class="ticker-item"><span class="sym">BRENT</span> 74.30 <span class="dn">-0.93%</span></span>
-    <span class="ticker-item"><span class="sym">GOLD</span> 2,381.50 <span class="up">+0.27%</span></span>
-    <span class="ticker-item"><span class="sym">GBP/USD</span> 1.2744 <span class="up">+0.09%</span></span>
-    <span class="ticker-item"><span class="sym">US10Y</span> 4.462% <span class="dn">-3bps</span></span>
-    <span class="ticker-item"><span class="sym">VIX</span> 14.82 <span class="dn">-0.55%</span></span>
-  </div>
+<!-- TradingView Ticker Widget -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+    "symbols": [
+      {"proName": "SPREADEX:FTSE", "title": "FTSE 100"},
+      {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"},
+      {"proName": "FX_IDC:EURUSD", "title": "EUR/USD"},
+      {"proName": "TVC:USOIL", "title": "Brent"},
+      {"proName": "TVC:GOLD", "title": "Gold"},
+      {"proName": "FX_IDC:GBPUSD", "title": "GBP/USD"},
+      {"proName": "TVC:US10Y", "title": "US 10Y"},
+      {"proName": "CBOE:VIX", "title": "VIX"},
+      {"proName": "TVC:DEU40", "title": "DAX"}
+    ],
+    "showSymbolLogo": false,
+    "colorTheme": "dark",
+    "isTransparent": false,
+    "displayMode": "adaptive",
+    "locale": "en"
+  }
+  </script>
 </div>
 
 <nav>
@@ -113,13 +103,39 @@
 
     <div class="commentary-card">
       <div class="card-meta">
+        <span class="card-date">17 Jun 2026</span>
+        <span class="card-tag tag-neutral">Hold Expected</span>
+      </div>
+      <h3 class="card-title">Bank of England Rate Prediction</h3>
+      <p class="card-body">
+        <span style="font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;">The Data</span>
+        Recent UK inflation data points to a Bank of England hold rather than an immediate rate cut. CPI stayed at 2.8%, below expectations, while CPIH remained at 3.0% and core inflation eased slightly to 2.6%. That suggests price pressures are cooling, but not disappearing entirely.
+      </p>
+      <p class="card-body">
+        <span style="font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;">The Case for a Hold</span>
+        The main reason I would still expect the Bank to hold is that services inflation remains sticky at 3.7%. That matters because it shows underlying inflation is still present even as the headline rate improves. At the same time, the labour market is softening, with unemployment around 5.0% and pay growth slowing to 3.4%, which points to weaker demand and less inflationary pressure ahead.
+      </p>
+      <p class="card-body">
+        <span style="font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:8px;">The Outlook</span>
+        Overall, this feels like a mildly dovish setup. Inflation is lower than expected, the labour market is cooling, and the balance of risks is gradually shifting toward cuts later in the year. If markets begin pricing that in more aggressively, bond yields could fall and bond prices could rise.
+      </p>
+      <div class="hypothesis-box" style="font-size:13px;">
+        Mixed inflation data and a weakening labour market set up a rate hold, with potential cuts later in the year — which could push bond prices higher.
+      </div>
+      <div class="card-asset">
+        <span class="asset-ticker">SONIA</span>
+        <span class="asset-sep">·</span>
+        <span class="asset-name">Bank of England Rate Decision · 18 Jun 2026</span>
+      </div>
+    </div>
+
+    <div class="commentary-card">
+      <div class="card-meta">
         <span class="card-date">11 Jun 2026</span>
         <span class="card-tag tag-bull">Bullish</span>
       </div>
       <h3 class="card-title">ECB's First Rate Rise Since 2025 Lifts European Banks as Gold Slides</h3>
-      <p class="card-body">
-        The ECB has raised rates for the first time since 2025, and the move keeps the policy backdrop supportive for bank earnings. Higher rates tend to lift net interest income, even if funding costs and credit risk build over time. Meanwhile gold has slipped to a six-month low, which makes sense in a stronger rate environment where demand for defensive assets fades. That combination points toward rotation into rate beneficiaries and away from safe-haven exposure.
-      </p>
+      <p class="card-body">The ECB has raised rates for the first time since 2025, and the move keeps the policy backdrop supportive for bank earnings. Higher rates tend to lift net interest income, even if funding costs and credit risk build over time. Meanwhile gold has slipped to a six-month low, which makes sense in a stronger rate environment where demand for defensive assets fades. That combination points toward rotation into rate beneficiaries and away from safe-haven exposure.</p>
       <div class="hypothesis-box">
         If the ECB follows through with further hikes, European banks can keep outperforming while gold stays under pressure as capital shifts away from non-yielding assets.
       </div>
