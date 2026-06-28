@@ -14,67 +14,101 @@
     --gold: #c9a84c; --gold-light: #e8c96a; --gold-pale: rgba(201,168,76,0.12);
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'DM Sans', sans-serif; --mono: 'DM Mono', monospace;
+    --green: #2a9d8f; --blue: #4171e0; --red: #e63946;
   }
+  html { scroll-behavior: smooth; }
   body { background: var(--navy-deep); color: #e8e4d9; font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
-  nav { position: fixed; top: 46px; width: 100%; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(6,14,28,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--navy-border); }
+
+  /* Nav — no ticker so sits at top:0 */
+  nav { position: fixed; top: 0; width: 100%; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(6,14,28,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid var(--navy-border); }
   .nav-logo { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--gold-light); letter-spacing: 0.1em; text-decoration: none; }
   .nav-links { display: flex; gap: 36px; list-style: none; }
   .nav-links a { font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; color: #a0b0c8; text-decoration: none; transition: color 0.25s; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
-  .page-hero { padding: 200px 60px 80px; border-bottom: 1px solid var(--navy-border); }
+
+  /* Hero */
+  .page-hero { padding: 160px 60px 80px; border-bottom: 1px solid var(--navy-border); }
   .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
   .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold); opacity: 0.5; }
   .section-title { font-family: var(--serif); font-size: clamp(48px, 6vw, 80px); font-weight: 300; line-height: 1.1; color: #e8e4d9; margin-bottom: 16px; }
   .section-title em { font-style: italic; color: var(--gold-light); }
   .page-intro { font-size: 16px; color: #d0ddf0; max-width: 560px; line-height: 1.8; margin-top: 16px; }
+
+  /* Content */
   .content-area { padding: 80px 60px; }
-  .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-  .project-card { background: var(--navy-mid); border: 1px solid var(--navy-border); padding: 36px; transition: border-color 0.2s, transform 0.2s; position: relative; overflow: hidden; }
-  .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
-  .project-card:hover { border-color: rgba(201,168,76,0.4); transform: translateY(-4px); }
-  .project-card:hover::before { transform: scaleX(1); }
+
+  /* Project card */
+  .project-card { background: var(--navy-mid); border: 1px solid var(--navy-border); padding: 48px; position: relative; overflow: hidden; }
+  .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); }
   .project-num { font-family: var(--mono); font-size: 12px; color: #a0b0c8; margin-bottom: 20px; letter-spacing: 0.1em; }
-  .project-title { font-family: var(--serif); font-size: 26px; font-weight: 300; color: #e8e4d9; margin-bottom: 12px; line-height: 1.3; }
-  .project-desc { font-size: 16px; color: #c0d0e8; line-height: 1.85; margin-bottom: 24px; }
-  .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
-  .project-tag { font-size: 11px; letter-spacing: 0.08em; color: #a0b0c8; border: 1px solid var(--navy-border); padding: 3px 10px; }
-  .empty-state { padding: 80px 0; text-align: center; }
-  .empty-state p { font-family: var(--serif); font-size: 26px; font-style: italic; color: #a0b0c8; }
-  footer { background: var(--navy-deep); border-top: 1px solid var(--navy-border); padding: 28px 60px; display: flex; justify-content: space-between; align-items: center; }
+  .project-title { font-family: var(--serif); font-size: 32px; font-weight: 300; color: #e8e4d9; margin-bottom: 16px; line-height: 1.2; }
+  .project-title em { font-style: italic; color: var(--gold-light); }
+  .project-desc { font-size: 15px; color: #c0d0e8; line-height: 1.85; margin-bottom: 16px; }
+
+  /* Stats row */
+  .project-stats { display: flex; gap: 0; margin: 28px 0; border: 1px solid var(--navy-border); }
+  .stat-item { flex: 1; padding: 16px 20px; border-right: 1px solid var(--navy-border); text-align: center; }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { display: block; font-family: var(--serif); font-size: 26px; font-weight: 300; color: var(--gold-light); line-height: 1; }
+  .stat-label { display: block; font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: #a0b0c8; margin-top: 6px; }
+
+  /* Badges */
+  .project-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
+  .badge { font-family: var(--mono); font-size: 11px; color: var(--gold); border: 1px solid rgba(201,168,76,0.3); padding: 4px 12px; letter-spacing: 0.05em; }
+
+  /* Tool */
+  .tool-wrap { border-top: 1px solid var(--navy-border); padding-top: 40px; margin-top: 8px; }
+  .tool-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .tool-title { font-family: var(--serif); font-size: 24px; font-weight: 300; color: #e8e4d9; margin-bottom: 8px; }
+  .tool-title em { font-style: italic; color: var(--gold-light); }
+  .tool-sub { font-size: 13px; color: #a0b0c8; line-height: 1.7; margin-bottom: 28px; max-width: 680px; }
+
+  .frontier-grid { display: grid; grid-template-columns: 1fr 300px; gap: 28px; align-items: start; }
+
+  /* Canvas */
+  .chart-area { background: var(--navy-deep); border: 1px solid var(--navy-border); padding: 16px; }
+  canvas { display: block; width: 100%; }
+
+  /* Controls */
+  .controls-panel { display: flex; flex-direction: column; gap: 20px; }
+  .control-group label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 10px; }
+  .slider-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .slider-name { font-family: var(--mono); font-size: 11px; color: #a0b0c8; width: 52px; flex-shrink: 0; }
+  .slider-val { font-family: var(--mono); font-size: 12px; color: var(--gold-light); width: 36px; text-align: right; flex-shrink: 0; }
+  input[type=range] { flex: 1; appearance: none; height: 2px; background: var(--navy-border); outline: none; cursor: pointer; }
+  input[type=range]::-webkit-slider-thumb { appearance: none; width: 12px; height: 12px; border-radius: 50%; background: var(--gold); cursor: pointer; }
+  input[type=range]::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--gold); cursor: pointer; border: none; }
+  .slider-hint { font-size: 11px; color: #4a5872; line-height: 1.5; margin-top: 4px; }
+
+  /* Metrics */
+  .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .metric-box { background: rgba(6,14,28,0.6); border: 1px solid var(--navy-border); padding: 12px; }
+  .metric-box.gold { border-color: rgba(201,168,76,0.4); }
+  .metric-val { font-family: var(--mono); font-size: 17px; color: #e8e4d9; line-height: 1; }
+  .metric-box.gold .metric-val { color: var(--gold-light); }
+  .metric-lbl { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: #4a5872; margin-top: 4px; }
+
+  /* Chart key */
+  .legend-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .legend-text { font-family: var(--mono); font-size: 10px; color: #a0b0c8; }
+
+  footer { background: var(--navy-deep); border-top: 1px solid var(--navy-border); padding: 28px 60px; display: flex; justify-content: space-between; align-items: center; margin-top: 80px; }
   footer p { font-size: 12px; color: #a0b0c8; letter-spacing: 0.05em; }
-  @media (max-width: 768px) {
-    nav { padding: 16px 24px; top: 46px; } .nav-links { display: none; }
-    .page-hero { padding: 140px 24px 60px; } .content-area { padding: 60px 24px; }
+
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; } .nav-links { display: none; }
+    .page-hero { padding: 120px 24px 60px; }
+    .content-area { padding: 40px 24px; }
+    .project-card { padding: 28px 20px; }
+    .frontier-grid { grid-template-columns: 1fr; }
+    .project-stats { flex-wrap: wrap; }
+    .stat-item { min-width: 33%; }
     footer { flex-direction: column; gap: 8px; text-align: center; }
   }
 </style>
 </head>
 <body>
-
-<!-- TradingView Ticker Widget -->
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {
-    "symbols": [
-      {"proName": "SPREADEX:FTSE", "title": "FTSE 100"},
-      {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"},
-      {"proName": "FX_IDC:EURUSD", "title": "EUR/USD"},
-      {"proName": "TVC:USOIL", "title": "Brent"},
-      {"proName": "TVC:GOLD", "title": "Gold"},
-      {"proName": "FX_IDC:GBPUSD", "title": "GBP/USD"},
-      {"proName": "TVC:US10Y", "title": "US 10Y"},
-      {"proName": "CBOE:VIX", "title": "VIX"},
-      {"proName": "TVC:DEU40", "title": "DAX"}
-    ],
-    "showSymbolLogo": false,
-    "colorTheme": "dark",
-    "isTransparent": false,
-    "displayMode": "adaptive",
-    "locale": "en"
-  }
-  </script>
-</div>
 
 <nav>
   <a href="index.html" class="nav-logo">Titan Thesis</a>
@@ -89,35 +123,124 @@
 <div class="page-hero">
   <div class="section-label">Portfolio</div>
   <h1 class="section-title">Work &amp;<br><em>Projects</em></h1>
-  <p class="page-intro">A selection of research, analysis, and projects across finance and economics.</p>
+  <p class="page-intro">Research, quantitative tools, and analysis — built at the crossroads of mathematics, economics, and financial markets.</p>
 </div>
 
 <div class="content-area">
-  <div class="portfolio-grid">
+  <div class="project-card">
+    <div class="project-num">01</div>
+    <h2 class="project-title">Portfolio <em>Optimisation</em> Tool</h2>
 
-    <div class="project-card fade-in">
-      <div class="project-num">01</div>
-      <h3 class="project-title">Markowitz Portfolio Optimisation Engine</h3>
-      <p class="project-desc">
-        Built a full mean-variance optimisation engine in Python from scratch across a 15-stock, 5-sector universe — the same framework used by institutional asset managers and quant funds as the baseline for portfolio construction.
-      </p>
-      <p class="project-desc">
-        Expected returns were derived using a 50/50 blend of historical returns and CAPM estimates, with Ledoit-Wolf covariance shrinkage applied to produce more stable estimates. 50,000 Monte Carlo simulations mapped the full opportunity set before SLSQP constrained optimisation identified the exact efficient frontier.
-      </p>
-      <p class="project-desc">
-        Three constraint scenarios were applied — a 30% single-asset weight cap, a 40% sector cap enforced via inequality constraints, and a 15% short-selling limit — producing six portfolio variants compared across Sharpe ratio, Calmar ratio, and maximum drawdown. The maximum Sharpe portfolio generated 23% expected return at 14% volatility, outperforming an equal-weight benchmark by 8% on a Sharpe Ratio basis.
-      </p>
-      <div class="project-tags">
-        <span class="project-tag">Python</span>
-        <span class="project-tag">Monte Carlo</span>
-        <span class="project-tag">SLSQP</span>
-        <span class="project-tag">CAPM</span>
-        <span class="project-tag">Ledoit-Wolf</span>
-        <span class="project-tag">Markowitz</span>
-      </div>
-      <p style="font-family:var(--mono);font-size:11px;color:var(--gold);margin-top:24px;letter-spacing:0.1em;">⚡ INTERACTIVE TOOL — COMING SOON</p>
+    <p class="project-desc">Built a Markowitz portfolio optimisation engine in Python across 15 stocks and 5 sectors. The engine derives expected returns and identifies optimal portfolio allocations under multiple constraint scenarios.</p>
+
+    <p class="project-desc" style="font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-top:28px;margin-bottom:12px;">How I built and refined it</p>
+
+    <p class="project-desc"><strong style="color:#e8e4d9;">Monte Carlo to SLSQP</strong> — I started by running 50,000 Monte Carlo simulations, generating random portfolio weight combinations and picking the best one. I quickly realised the problem. No matter how many simulations I ran, I was still sampling randomly and could easily be missing thousands of better portfolios I never landed on. This is why I introduced SLSQP optimisation, which solves the problem mathematically rather than guessing, guaranteeing the true optimal portfolio.</p>
+
+    <p class="project-desc"><strong style="color:#e8e4d9;">Historical returns to CAPM blend</strong> — My initial expected return estimates were based purely on historical data, meaning the model was entirely backwards looking. I wanted something more forward looking, which is why I implemented CAPM. However, CAPM relies on assumptions that don't always hold in practice, so I decided to take a 50/50 blend of historical and CAPM estimates to balance both approaches.</p>
+
+    <p class="project-desc"><strong style="color:#e8e4d9;">Weight and sector caps</strong> — Looking at the output from an investor's perspective, I noticed the optimiser was concentrating too heavily into single assets and sectors. To make the portfolio more realistic and properly diversified, I introduced a 30% weight cap per asset and a 40% sector cap, preventing any one position or sector from dominating the allocation.</p>
+
+    <p class="project-desc"><strong style="color:#e8e4d9;">Short selling</strong> — My model was initially long only, meaning every asset had to have a positive weight. I extended it to allow short positions of up to 15% per asset, which meant the optimiser could take a negative position in a stock it expected to underperform. This made the model more realistic and gave the optimiser more flexibility to improve the Sharpe ratio.</p>
+
+    <div class="project-stats">
+      <div class="stat-item"><span class="stat-num">15</span><span class="stat-label">Stocks · 5 sectors</span></div>
+      <div class="stat-item"><span class="stat-num">50K</span><span class="stat-label">Monte Carlo sims</span></div>
+      <div class="stat-item"><span class="stat-num">1.19</span><span class="stat-label">Max Sharpe ratio</span></div>
+      <div class="stat-item"><span class="stat-num">15.0%</span><span class="stat-label">Min variance vol</span></div>
+      <div class="stat-item"><span class="stat-num">7yr</span><span class="stat-label">Data window</span></div>
     </div>
 
+    <div class="project-badges">
+      <span class="badge">Python</span>
+      <span class="badge">Monte Carlo</span>
+      <span class="badge">SLSQP</span>
+      <span class="badge">CAPM</span>
+      <span class="badge">Ledoit-Wolf</span>
+      <span class="badge">Markowitz</span>
+    </div>
+
+    <!-- Interactive Tool -->
+    <div class="tool-wrap" id="frontier-tool">
+      <div class="tool-label">Simplified demonstration</div>
+      <h3 class="tool-title">Efficient <em>Frontier</em> — Interactive</h3>
+      <p class="tool-sub">Adjust the risk-free rate, expected returns by sector, and correlation between assets to see how the efficient frontier shifts in real time. Built on the same mean-variance mathematics as the full Python engine above.</p>
+
+      <div class="frontier-grid">
+
+        <!-- Canvas -->
+        <div class="chart-area">
+          <canvas id="frontier" height="420"></canvas>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls-panel">
+
+          <div class="control-group">
+            <label>Risk-free rate</label>
+            <div class="slider-row">
+              <span class="slider-name">r<sub>f</sub></span>
+              <input type="range" id="rfSlider" min="0" max="8" step="0.1" value="4.5">
+              <span class="slider-val" id="rfVal">4.5%</span>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Expected return by sector</label>
+            <div class="slider-row">
+              <span class="slider-name">Tech</span>
+              <input type="range" id="retA" min="8" max="45" step="0.5" value="28">
+              <span class="slider-val" id="retAVal">28%</span>
+            </div>
+            <div class="slider-row">
+              <span class="slider-name">Banks</span>
+              <input type="range" id="retB" min="5" max="30" step="0.5" value="14">
+              <span class="slider-val" id="retBVal">14%</span>
+            </div>
+            <div class="slider-row">
+              <span class="slider-name">Defence</span>
+              <input type="range" id="retC" min="3" max="18" step="0.5" value="8">
+              <span class="slider-val" id="retCVal">8%</span>
+            </div>
+          </div>
+
+          <!-- TODO: Add correlation slider here once you've learned more about
+               Ledoit-Wolf shrinkage and covariance matrix — come back to this -->
+
+          <div class="control-group">
+            <label>Results</label>
+            <div class="metrics-grid">
+              <div class="metric-box">
+                <div class="metric-val" id="mvpVol">—</div>
+                <div class="metric-lbl">Min variance vol</div>
+              </div>
+              <div class="metric-box">
+                <div class="metric-val" id="mvpRet">—</div>
+                <div class="metric-lbl">Min variance return</div>
+              </div>
+              <div class="metric-box gold">
+                <div class="metric-val" id="msrSR">—</div>
+                <div class="metric-lbl">Max Sharpe ratio</div>
+              </div>
+              <div class="metric-box gold">
+                <div class="metric-val" id="msrVol">—</div>
+                <div class="metric-lbl">Max Sharpe vol</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <label>Chart key</label>
+            <div class="legend-row"><div class="legend-dot" style="background:rgba(100,150,255,0.3)"></div><span class="legend-text">Monte Carlo portfolios</span></div>
+            <div class="legend-row"><div class="legend-dot" style="background:var(--gold-light)"></div><span class="legend-text">Efficient frontier</span></div>
+            <div class="legend-row"><div class="legend-dot" style="background:var(--gold);opacity:0.6;border-radius:2px"></div><span class="legend-text">Capital Market Line</span></div>
+            <div class="legend-row"><div class="legend-dot" style="background:#2a9d8f;border-radius:2px"></div><span class="legend-text">Max Sharpe portfolio ★</span></div>
+            <div class="legend-row"><div class="legend-dot" style="background:#4171e0;border-radius:2px"></div><span class="legend-text">Min Variance portfolio ◆</span></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -125,5 +248,260 @@
   <p>© 2026 Sheron</p>
   <p>LSE Mathematics &amp; Economics · London</p>
 </footer>
+
+<script>
+const canvas = document.getElementById('frontier');
+const ctx    = canvas.getContext('2d');
+
+const GOLD  = '#e8c96a';
+const GREEN = '#2a9d8f';
+const BLUE  = '#4171e0';
+const RED   = '#e63946';
+
+function getSlider(id) { return parseFloat(document.getElementById(id).value); }
+
+const VOL = [0.32, 0.22, 0.14];
+
+function buildCov(corr) {
+  const c = [[0,0,0],[0,0,0],[0,0,0]];
+  for (let i=0; i<3; i++)
+    for (let j=0; j<3; j++)
+      c[i][j] = i===j ? VOL[i]*VOL[i] : corr * VOL[i] * VOL[j];
+  return c;
+}
+
+function portStats(w, mu, cov) {
+  const ret = w[0]*mu[0] + w[1]*mu[1] + w[2]*mu[2];
+  let variance = 0;
+  for (let i=0; i<3; i++)
+    for (let j=0; j<3; j++)
+      variance += w[i]*w[j]*cov[i][j];
+  return { ret, vol: Math.sqrt(Math.max(0, variance)) };
+}
+
+function monteCarlo(mu, cov, n=1800) {
+  const pts = [];
+  for (let k=0; k<n; k++) {
+    let r1=Math.random(), r2=Math.random(), r3=Math.random();
+    const s = r1+r2+r3;
+    pts.push(portStats([r1/s, r2/s, r3/s], mu, cov));
+  }
+  return pts;
+}
+
+function efficientFrontier(mu, cov, nPts=120) {
+  let mvp = null, mvpVol = Infinity;
+  const grid = [];
+  for (let i=0; i<=50; i++) {
+    for (let j=0; j<=50-i; j++) {
+      const k = 50-i-j;
+      const w = [i/50, j/50, k/50];
+      const s = portStats(w, mu, cov);
+      grid.push({ w, ...s });
+      if (s.vol < mvpVol) { mvpVol = s.vol; mvp = { w, ...s }; }
+    }
+  }
+  const minR = mvp.ret;
+  const maxR = Math.max(...mu) * 0.96;
+  const targets = Array.from({length: nPts}, (_, i) => minR + (maxR-minR)*i/(nPts-1));
+  const frontier = [];
+  for (const tr of targets) {
+    let best = null, bestVol = Infinity;
+    for (const p of grid) {
+      if (Math.abs(p.ret - tr) < 0.015 && p.vol < bestVol) { bestVol = p.vol; best = p; }
+    }
+    if (best) frontier.push(best);
+  }
+  return { frontier, mvp };
+}
+
+function maxSharpe(mu, cov, rf) {
+  let best = null, bestSR = -Infinity;
+  for (let i=0; i<=60; i++) {
+    for (let j=0; j<=60-i; j++) {
+      const k=60-i-j;
+      const w=[i/60, j/60, k/60];
+      const s=portStats(w, mu, cov);
+      const sr=(s.ret-rf)/s.vol;
+      if (sr>bestSR) { bestSR=sr; best={w,...s,sr}; }
+    }
+  }
+  return best;
+}
+
+function toCanvas(vol, ret, pad, W, H, volMin, volMax, retMin, retMax) {
+  const x = pad.l + (vol-volMin)/(volMax-volMin) * (W-pad.l-pad.r);
+  const y = H - pad.b - (ret-retMin)/(retMax-retMin) * (H-pad.t-pad.b);
+  return { x, y };
+}
+
+function draw() {
+  const rect = canvas.getBoundingClientRect();
+  canvas.width  = rect.width || 600;
+  canvas.height = 420;
+  const W = canvas.width, H = canvas.height;
+  const pad = { l:52, r:24, t:20, b:48 };
+
+  const rf  = getSlider('rfSlider') / 100;
+  const muA = getSlider('retA')     / 100;
+  const muB = getSlider('retB')     / 100;
+  const muC = getSlider('retC')     / 100;
+  const rho = 0.25; // Fixed correlation — slider coming soon
+
+  document.getElementById('rfVal').textContent   = (rf*100).toFixed(1)+'%';
+  document.getElementById('retAVal').textContent = (muA*100).toFixed(0)+'%';
+  document.getElementById('retBVal').textContent = (muB*100).toFixed(0)+'%';
+  document.getElementById('retCVal').textContent = (muC*100).toFixed(0)+'%';
+
+  const mu  = [muA, muB, muC];
+  const cov = buildCov(rho);
+
+  const mcPts              = monteCarlo(mu, cov, 1600);
+  const { frontier, mvp } = efficientFrontier(mu, cov);
+  const msr               = maxSharpe(mu, cov, rf);
+
+  const allVols = mcPts.map(p=>p.vol);
+  const allRets = mcPts.map(p=>p.ret);
+  const volMin = 0;
+  const volMax = Math.max(...allVols)*1.12;
+  const retMin = rf*0.7;
+  const retMax = Math.max(...allRets)*1.12;
+
+  const C = (v,r) => toCanvas(v, r, pad, W, H, volMin, volMax, retMin, retMax);
+
+  ctx.clearRect(0, 0, W, H);
+
+  // Dark background
+  ctx.fillStyle = '#060e1c';
+  ctx.fillRect(0, 0, W, H);
+
+  // Grid
+  ctx.strokeStyle = 'rgba(180,160,100,0.07)';
+  ctx.lineWidth = 1;
+  for (let i=0; i<=5; i++) {
+    const y = pad.t + (H-pad.t-pad.b)*i/5;
+    ctx.beginPath(); ctx.moveTo(pad.l,y); ctx.lineTo(W-pad.r,y); ctx.stroke();
+    const x = pad.l + (W-pad.l-pad.r)*i/5;
+    ctx.beginPath(); ctx.moveTo(x,pad.t); ctx.lineTo(x,H-pad.b); ctx.stroke();
+  }
+
+  // Axis labels
+  ctx.fillStyle = '#a0b0c8';
+  ctx.font = '10px DM Mono, monospace';
+  ctx.textAlign = 'center';
+  for (let i=0; i<=5; i++) {
+    const v = volMin + (volMax-volMin)*i/5;
+    const {x,y} = C(v, retMin);
+    ctx.fillText((v*100).toFixed(0)+'%', x, H-10);
+  }
+  ctx.textAlign = 'right';
+  for (let i=0; i<=5; i++) {
+    const r = retMin + (retMax-retMin)*i/5;
+    const {x,y} = C(volMin, r);
+    ctx.fillText((r*100).toFixed(0)+'%', pad.l-6, y+4);
+  }
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#4a5872';
+  ctx.font = '10px DM Mono, monospace';
+  ctx.fillText('Annualised Volatility', pad.l+(W-pad.l-pad.r)/2, H-2);
+
+  // Monte Carlo dots
+  for (const p of mcPts) {
+    const {x,y} = C(p.vol, p.ret);
+    ctx.beginPath();
+    ctx.arc(x, y, 2, 0, 2*Math.PI);
+    ctx.fillStyle = 'rgba(100,150,255,0.18)';
+    ctx.fill();
+  }
+
+  // Efficient frontier
+  if (frontier.length > 1) {
+    ctx.beginPath();
+    frontier.forEach((p,i) => {
+      const {x,y} = C(p.vol, p.ret);
+      i===0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+    });
+    ctx.strokeStyle = GOLD;
+    ctx.lineWidth = 2.5;
+    ctx.shadowColor = GOLD;
+    ctx.shadowBlur = 6;
+    ctx.lineJoin = 'round';
+    ctx.stroke();
+    ctx.shadowBlur = 0;
+  }
+
+  // Capital Market Line
+  if (msr) {
+    const slope = (msr.ret - rf) / msr.vol;
+    const x1 = C(0, rf);
+    const x2 = C(volMax*0.95, rf + slope*volMax*0.95);
+    ctx.beginPath();
+    ctx.moveTo(x1.x, x1.y);
+    ctx.lineTo(x2.x, x2.y);
+    ctx.strokeStyle = 'rgba(201,168,76,0.5)';
+    ctx.lineWidth = 1.5;
+    ctx.setLineDash([6,4]);
+    ctx.stroke();
+    ctx.setLineDash([]);
+    // rf dot
+    ctx.beginPath();
+    ctx.arc(x1.x, x1.y, 4, 0, 2*Math.PI);
+    ctx.fillStyle = RED;
+    ctx.fill();
+    ctx.fillStyle = RED;
+    ctx.font = 'bold 10px DM Mono, monospace';
+    ctx.textAlign = 'left';
+    ctx.fillText('rf', x1.x+7, x1.y+4);
+  }
+
+  // MVP diamond
+  if (mvp) {
+    const {x,y} = C(mvp.vol, mvp.ret);
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.rotate(Math.PI/4);
+    ctx.fillStyle = BLUE;
+    ctx.fillRect(-6,-6,12,12);
+    ctx.restore();
+    ctx.fillStyle = BLUE;
+    ctx.font = 'bold 10px DM Sans, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('Min Variance', x+12, y-4);
+    document.getElementById('mvpVol').textContent = (mvp.vol*100).toFixed(1)+'%';
+    document.getElementById('mvpRet').textContent = (mvp.ret*100).toFixed(1)+'%';
+  }
+
+  // MSR star
+  if (msr) {
+    const {x,y} = C(msr.vol, msr.ret);
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.beginPath();
+    for (let i=0; i<5; i++) {
+      const a=(i*4*Math.PI/5)-Math.PI/2;
+      const b=(i*4*Math.PI/5+2*Math.PI/5)-Math.PI/2;
+      ctx.lineTo(Math.cos(a)*11, Math.sin(a)*11);
+      ctx.lineTo(Math.cos(b)*5,  Math.sin(b)*5);
+    }
+    ctx.closePath();
+    ctx.fillStyle = GREEN;
+    ctx.fill();
+    ctx.restore();
+    ctx.fillStyle = GREEN;
+    ctx.font = 'bold 10px DM Sans, sans-serif';
+    ctx.textAlign = 'left';
+    ctx.fillText('Max Sharpe', x+14, y-6);
+    document.getElementById('msrSR').textContent  = msr.sr.toFixed(3);
+    document.getElementById('msrVol').textContent = (msr.vol*100).toFixed(1)+'%';
+  }
+}
+
+['rfSlider','retA','retB','retC'].forEach(id => {
+  document.getElementById(id).addEventListener('input', draw);
+});
+
+window.addEventListener('resize', draw);
+setTimeout(draw, 80);
+</script>
 </body>
 </html>
