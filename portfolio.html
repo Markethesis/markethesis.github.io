@@ -16,27 +16,17 @@
     --sans: 'DM Sans', sans-serif; --mono: 'DM Mono', monospace;
   }
   body { background: var(--navy-deep); color: #e8e4d9; font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
-
-  .ticker-wrap { background: var(--navy-mid); border-bottom: 1px solid var(--navy-border); overflow: hidden; padding: 12px 0; }
-  .ticker { display: flex; gap: 3rem; animation: ticker 32s linear infinite; white-space: nowrap; width: max-content; }
-  .ticker-item { font-family: var(--mono); font-size: 13px; letter-spacing: 0.06em; color: #d0ddf0; }
-  .ticker-item .sym { color: var(--gold-light); font-weight: 400; margin-right: 8px; }
-  .ticker-item .up { color: #5cb88a; } .ticker-item .dn { color: #e06060; }
-  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-  nav { position: fixed; top: 0; width: 100%; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(6,14,28,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--navy-border); }
+  nav { position: fixed; top: 46px; width: 100%; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(6,14,28,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--navy-border); }
   .nav-logo { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--gold-light); letter-spacing: 0.1em; text-decoration: none; }
   .nav-links { display: flex; gap: 36px; list-style: none; }
   .nav-links a { font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; color: #a0b0c8; text-decoration: none; transition: color 0.25s; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
-
-  .page-hero { padding: 160px 60px 80px; border-bottom: 1px solid var(--navy-border); }
+  .page-hero { padding: 200px 60px 80px; border-bottom: 1px solid var(--navy-border); }
   .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
   .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold); opacity: 0.5; }
   .section-title { font-family: var(--serif); font-size: clamp(48px, 6vw, 80px); font-weight: 300; line-height: 1.1; color: #e8e4d9; margin-bottom: 16px; }
   .section-title em { font-style: italic; color: var(--gold-light); }
   .page-intro { font-size: 16px; color: #d0ddf0; max-width: 560px; line-height: 1.8; margin-top: 16px; }
-
   .content-area { padding: 80px 60px; }
   .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
   .project-card { background: var(--navy-mid); border: 1px solid var(--navy-border); padding: 36px; transition: border-color 0.2s, transform 0.2s; position: relative; overflow: hidden; }
@@ -48,41 +38,42 @@
   .project-desc { font-size: 16px; color: #c0d0e8; line-height: 1.85; margin-bottom: 24px; }
   .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .project-tag { font-size: 11px; letter-spacing: 0.08em; color: #a0b0c8; border: 1px solid var(--navy-border); padding: 3px 10px; }
-
   .empty-state { padding: 80px 0; text-align: center; }
   .empty-state p { font-family: var(--serif); font-size: 26px; font-style: italic; color: #a0b0c8; }
-
   footer { background: var(--navy-deep); border-top: 1px solid var(--navy-border); padding: 28px 60px; display: flex; justify-content: space-between; align-items: center; }
   footer p { font-size: 12px; color: #a0b0c8; letter-spacing: 0.05em; }
-
   @media (max-width: 768px) {
-    nav { padding: 16px 24px; } .nav-links { display: none; }
-    .page-hero { padding: 120px 24px 60px; } .content-area { padding: 60px 24px; }
+    nav { padding: 16px 24px; top: 46px; } .nav-links { display: none; }
+    .page-hero { padding: 140px 24px 60px; } .content-area { padding: 60px 24px; }
     footer { flex-direction: column; gap: 8px; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<div class="ticker-wrap">
-  <div class="ticker">
-    <span class="ticker-item"><span class="sym">FTSE</span> 8,621.40 <span class="up">+0.42%</span></span>
-    <span class="ticker-item"><span class="sym">S&P 500</span> 5,834.27 <span class="up">+0.61%</span></span>
-    <span class="ticker-item"><span class="sym">EUR/USD</span> 1.0812 <span class="dn">-0.18%</span></span>
-    <span class="ticker-item"><span class="sym">BRENT</span> 74.30 <span class="dn">-0.93%</span></span>
-    <span class="ticker-item"><span class="sym">GOLD</span> 2,381.50 <span class="up">+0.27%</span></span>
-    <span class="ticker-item"><span class="sym">GBP/USD</span> 1.2744 <span class="up">+0.09%</span></span>
-    <span class="ticker-item"><span class="sym">US10Y</span> 4.462% <span class="dn">-3bps</span></span>
-    <span class="ticker-item"><span class="sym">VIX</span> 14.82 <span class="dn">-0.55%</span></span>
-    <span class="ticker-item"><span class="sym">FTSE</span> 8,621.40 <span class="up">+0.42%</span></span>
-    <span class="ticker-item"><span class="sym">S&P 500</span> 5,834.27 <span class="up">+0.61%</span></span>
-    <span class="ticker-item"><span class="sym">EUR/USD</span> 1.0812 <span class="dn">-0.18%</span></span>
-    <span class="ticker-item"><span class="sym">BRENT</span> 74.30 <span class="dn">-0.93%</span></span>
-    <span class="ticker-item"><span class="sym">GOLD</span> 2,381.50 <span class="up">+0.27%</span></span>
-    <span class="ticker-item"><span class="sym">GBP/USD</span> 1.2744 <span class="up">+0.09%</span></span>
-    <span class="ticker-item"><span class="sym">US10Y</span> 4.462% <span class="dn">-3bps</span></span>
-    <span class="ticker-item"><span class="sym">VIX</span> 14.82 <span class="dn">-0.55%</span></span>
-  </div>
+<!-- TradingView Ticker Widget -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+    "symbols": [
+      {"proName": "SPREADEX:FTSE", "title": "FTSE 100"},
+      {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"},
+      {"proName": "FX_IDC:EURUSD", "title": "EUR/USD"},
+      {"proName": "TVC:USOIL", "title": "Brent"},
+      {"proName": "TVC:GOLD", "title": "Gold"},
+      {"proName": "FX_IDC:GBPUSD", "title": "GBP/USD"},
+      {"proName": "TVC:US10Y", "title": "US 10Y"},
+      {"proName": "CBOE:VIX", "title": "VIX"},
+      {"proName": "TVC:DEU40", "title": "DAX"}
+    ],
+    "showSymbolLogo": false,
+    "colorTheme": "dark",
+    "isTransparent": false,
+    "displayMode": "adaptive",
+    "locale": "en"
+  }
+  </script>
 </div>
 
 <nav>
@@ -102,9 +93,31 @@
 </div>
 
 <div class="content-area">
-  <div class="portfolio-grid"></div>
-  <div class="empty-state">
-    <p>Projects coming soon.</p>
+  <div class="portfolio-grid">
+
+    <div class="project-card fade-in">
+      <div class="project-num">01</div>
+      <h3 class="project-title">Markowitz Portfolio Optimisation Engine</h3>
+      <p class="project-desc">
+        Built a full mean-variance optimisation engine in Python from scratch across a 15-stock, 5-sector universe — the same framework used by institutional asset managers and quant funds as the baseline for portfolio construction.
+      </p>
+      <p class="project-desc">
+        Expected returns were derived using a 50/50 blend of historical returns and CAPM estimates, with Ledoit-Wolf covariance shrinkage applied to produce more stable estimates. 50,000 Monte Carlo simulations mapped the full opportunity set before SLSQP constrained optimisation identified the exact efficient frontier.
+      </p>
+      <p class="project-desc">
+        Three constraint scenarios were applied — a 30% single-asset weight cap, a 40% sector cap enforced via inequality constraints, and a 15% short-selling limit — producing six portfolio variants compared across Sharpe ratio, Calmar ratio, and maximum drawdown. The maximum Sharpe portfolio generated 23% expected return at 14% volatility, outperforming an equal-weight benchmark by 8% on a Sharpe Ratio basis.
+      </p>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">Monte Carlo</span>
+        <span class="project-tag">SLSQP</span>
+        <span class="project-tag">CAPM</span>
+        <span class="project-tag">Ledoit-Wolf</span>
+        <span class="project-tag">Markowitz</span>
+      </div>
+      <p style="font-family:var(--mono);font-size:11px;color:var(--gold);margin-top:24px;letter-spacing:0.1em;">⚡ INTERACTIVE TOOL — COMING SOON</p>
+    </div>
+
   </div>
 </div>
 
