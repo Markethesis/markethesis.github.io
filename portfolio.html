@@ -234,7 +234,7 @@
     <div class="project-num">01</div>
     <h2 class="project-title">Markowitz <em>Portfolio Optimisation</em> Tool</h2>
 
-    <p class="project-desc">Built a Markowitz portfolio optimisation engine in Python across 15 stocks and 5 sectors. The engine derives expected returns and identifies optimal portfolio allocations under multiple constraint scenarios.</p>
+    <p class="project-desc">Developed a Markowitz portfolio optimisation engine in Python across 15 stocks and 5 sectors. The engine derives expected returns and identifies optimal portfolio allocations under multiple constraint scenarios.</p>
 
     <p class="project-desc" style="font-family:var(--mono);font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-top:28px;margin-bottom:12px;">How I built and refined it</p>
 
@@ -245,6 +245,8 @@
     <p class="project-desc"><strong style="color:#e8e4d9;">Weight and sector caps</strong> — Looking at the output from an investor's perspective, I noticed the optimiser was concentrating too heavily into single assets and sectors. To make the portfolio more realistic and properly diversified, I introduced a 30% weight cap per asset and a 40% sector cap, preventing any one position or sector from dominating the allocation.</p>
 
     <p class="project-desc"><strong style="color:#e8e4d9;">Short selling</strong> — My model was initially long only, meaning every asset had to have a positive weight. I extended it to allow short positions of up to 15% per asset, which meant the optimiser could take a negative position in a stock it expected to underperform. This made the model more realistic and gave the optimiser more flexibility to improve the Sharpe ratio.</p>
+
+    <p class="project-desc"><strong style="color:#e8e4d9;">Ledoit-Wolf covariance shrinkage</strong> — When I looked at the covariance matrix the model was producing, some of the correlation estimates between stocks looked unrealistically extreme. These extreme estimates were feeding into the optimiser and affecting the weight allocations in ways that did not make practical sense. I researched solutions and implemented Ledoit-Wolf shrinkage, a technique that pulls extreme correlation estimates back toward a more realistic average, producing a more stable and reliable covariance matrix.</p>
 
     <div class="project-badges">
       <span class="badge">Python</span>
