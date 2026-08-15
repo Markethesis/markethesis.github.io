@@ -17,21 +17,12 @@
   }
   html { scroll-behavior: smooth; }
   body { background: var(--navy-deep); color: #e8e4d9; font-family: var(--sans); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
-
-  .ticker-wrap { background: var(--navy-mid); border-bottom: 1px solid var(--navy-border); overflow: hidden; padding: 12px 0; }
-  .ticker { display: flex; gap: 3rem; animation: ticker 32s linear infinite; white-space: nowrap; width: max-content; }
-  .ticker-item { font-family: var(--mono); font-size: 13px; letter-spacing: 0.06em; color: #d0ddf0; }
-  .ticker-item .sym { color: var(--gold-light); font-weight: 400; margin-right: 8px; }
-  .ticker-item .up { color: #5cb88a; } .ticker-item .dn { color: #e06060; }
-  @keyframes ticker { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-
-  nav { position: fixed; top: 0; width: 100%; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(6,14,28,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--navy-border); }
+  nav { position: fixed; top: 46px; width: 100%; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(6,14,28,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--navy-border); }
   .nav-logo { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--gold-light); letter-spacing: 0.1em; text-decoration: none; }
   .nav-links { display: flex; gap: 36px; list-style: none; }
   .nav-links a { font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; color: #a0b0c8; text-decoration: none; transition: color 0.25s; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold-light); }
-
-  .hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding: 120px 60px 80px; overflow: hidden; }
+  .hero { min-height: 100vh; display: flex; align-items: center; position: relative; padding: 160px 60px 80px; overflow: hidden; }
   .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(var(--navy-border) 1px, transparent 1px), linear-gradient(90deg, var(--navy-border) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%); opacity: 0.4; }
   .deco-lines { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); opacity: 0.07; width: 440px; pointer-events: none; }
   .hero-content { position: relative; max-width: 760px; }
@@ -45,10 +36,6 @@
   .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
   .btn-outline { font-family: var(--sans); font-size: 13px; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); background: transparent; border: 1px solid var(--gold); padding: 14px 32px; cursor: pointer; text-decoration: none; transition: background 0.2s; }
   .btn-outline:hover { background: var(--gold-pale); }
-  .hero-stats { display: flex; gap: 48px; margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--navy-border); }
-  .stat-num { font-family: var(--serif); font-size: 36px; font-weight: 300; color: var(--gold-light); line-height: 1; }
-  .stat-label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: #a0b0c8; margin-top: 6px; }
-
   #about { background: var(--navy); padding: 100px 60px; }
   .section-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
   .section-label::after { content: ''; flex: 1; max-width: 60px; height: 1px; background: var(--gold); opacity: 0.5; }
@@ -61,40 +48,41 @@
   .tag-heading { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #a0b0c8; margin-bottom: 12px; }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; }
   .tag { font-size: 12px; color: var(--gold); border: 1px solid rgba(201,168,76,0.3); padding: 5px 14px; letter-spacing: 0.05em; }
-
   footer { background: var(--navy-deep); border-top: 1px solid var(--navy-border); padding: 28px 60px; display: flex; justify-content: space-between; align-items: center; }
   footer p { font-size: 12px; color: #a0b0c8; letter-spacing: 0.05em; }
-
   @media (max-width: 768px) {
-    nav { padding: 16px 24px; } .nav-links { display: none; }
-    .hero { padding: 100px 24px 60px; } #about { padding: 70px 24px; }
+    nav { padding: 16px 24px; top: 46px; } .nav-links { display: none; }
+    .hero { padding: 140px 24px 60px; } #about { padding: 70px 24px; }
     .about-grid { grid-template-columns: 1fr; gap: 48px; }
-    .hero-stats { gap: 24px; flex-wrap: wrap; }
     footer { flex-direction: column; gap: 8px; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<div class="ticker-wrap">
-  <div class="ticker">
-    <span class="ticker-item"><span class="sym">FTSE</span> 8,621.40 <span class="up">+0.42%</span></span>
-    <span class="ticker-item"><span class="sym">S&P 500</span> 5,834.27 <span class="up">+0.61%</span></span>
-    <span class="ticker-item"><span class="sym">EUR/USD</span> 1.0812 <span class="dn">-0.18%</span></span>
-    <span class="ticker-item"><span class="sym">BRENT</span> 74.30 <span class="dn">-0.93%</span></span>
-    <span class="ticker-item"><span class="sym">GOLD</span> 2,381.50 <span class="up">+0.27%</span></span>
-    <span class="ticker-item"><span class="sym">GBP/USD</span> 1.2744 <span class="up">+0.09%</span></span>
-    <span class="ticker-item"><span class="sym">US10Y</span> 4.462% <span class="dn">-3bps</span></span>
-    <span class="ticker-item"><span class="sym">VIX</span> 14.82 <span class="dn">-0.55%</span></span>
-    <span class="ticker-item"><span class="sym">FTSE</span> 8,621.40 <span class="up">+0.42%</span></span>
-    <span class="ticker-item"><span class="sym">S&P 500</span> 5,834.27 <span class="up">+0.61%</span></span>
-    <span class="ticker-item"><span class="sym">EUR/USD</span> 1.0812 <span class="dn">-0.18%</span></span>
-    <span class="ticker-item"><span class="sym">BRENT</span> 74.30 <span class="dn">-0.93%</span></span>
-    <span class="ticker-item"><span class="sym">GOLD</span> 2,381.50 <span class="up">+0.27%</span></span>
-    <span class="ticker-item"><span class="sym">GBP/USD</span> 1.2744 <span class="up">+0.09%</span></span>
-    <span class="ticker-item"><span class="sym">US10Y</span> 4.462% <span class="dn">-3bps</span></span>
-    <span class="ticker-item"><span class="sym">VIX</span> 14.82 <span class="dn">-0.55%</span></span>
-  </div>
+<!-- TradingView Ticker Widget -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+    "symbols": [
+      {"proName": "SPREADEX:FTSE", "title": "FTSE 100"},
+      {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500"},
+      {"proName": "FX_IDC:EURUSD", "title": "EUR/USD"},
+      {"proName": "TVC:USOIL", "title": "Brent"},
+      {"proName": "TVC:GOLD", "title": "Gold"},
+      {"proName": "FX_IDC:GBPUSD", "title": "GBP/USD"},
+      {"proName": "TVC:US10Y", "title": "US 10Y"},
+      {"proName": "CBOE:VIX", "title": "VIX"},
+      {"proName": "TVC:DEU40", "title": "DAX"}
+    ],
+    "showSymbolLogo": false,
+    "colorTheme": "dark",
+    "isTransparent": false,
+    "displayMode": "adaptive",
+    "locale": "en"
+  }
+  </script>
 </div>
 
 <nav>
@@ -124,13 +112,12 @@
   <div class="hero-content">
     <div class="hero-eyebrow">LSE Mathematics &amp; Economics · London</div>
     <h1 class="hero-name">Sheron</h1>
-    <p class="hero-subtitle">Markets analyst. Problem solver. Storyteller.</p>
-    <p class="hero-desc">I study the intersection of quantitative rigour and macroeconomic intuition. Here you'll find my market commentary, investment hypotheses, and work — built at the crossroads of mathematics, economics, and financial markets.</p>
+    <p class="hero-desc">I try to understand markets and have produced market commentary alongside my investment hypotheses and other projects.</p>
     <div class="hero-cta">
       <a href="markets.html" class="btn-primary">View Commentary</a>
       <a href="portfolio.html" class="btn-outline">Portfolio</a>
     </div>
-    </div>
+  </div>
 </section>
 
 <section id="about">
@@ -139,7 +126,6 @@
   <div class="about-grid">
     <div class="about-text">
       <p>I'm a second-year <strong>Mathematics and Economics</strong> student at the London School of Economics.</p>
-
     </div>
     <div class="about-sidebar">
       <div class="tag-group">
@@ -153,23 +139,6 @@
           <span class="tag">Principles of Finance</span>
           <span class="tag">Mathematical Methods</span>
           <span class="tag">Statistics</span>
-        </div>
-      </div>
-      <div class="tag-group">
-        <div class="tag-heading">Markets Interest</div>
-        <div class="tags">
-          <span class="tag">Rates & FX</span>
-          <span class="tag">Commodities</span>
-          <span class="tag">Equities</span>
-          <span class="tag">Macro Strategy</span>
-        </div>
-      </div>
-      <div class="tag-group">
-        <div class="tag-heading">Tools & Skills</div>
-        <div class="tags">
-          <span class="tag">Python</span>
-          <span class="tag">Bloomberg</span>
-          <span class="tag">Excel</span>
         </div>
       </div>
     </div>
